@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gasoline Payment System</title>
+</head>
+<body>
+
+    
+	<script type="text/javascript">
+		while (true) {
+	
+			var sentinel = prompt("Press C to continue or E to exit:");
+
+			if (sentinel === "E" || sentinel === "e") {
+				alert("Thank you for using the program.");
+				break;
+			} else if (sentinel !== "C" && sentinel !== "c") {
+				alert("Invalid input. Please enter C or E.");
+				continue; 
+			}
+
+			var gasoline = prompt("Enter U for Unleaded or D for Diesel:");
+			var pricePerLiter;
+
+			if (gasoline === "U" || gasoline === "u") {
+				pricePerLiter = 40; 
+			} else if (gasoline === "D" || gasoline === "d") {
+				pricePerLiter = 35; 
+			} else {
+				alert("Invalid input for gasoline type. Please try again.");
+				continue; 
+			}
+
+			var liters = parseFloat(prompt("Enter number of liters:"));
+			while (isNaN(liters) || liters <= 0) {
+				liters = parseFloat(prompt("Invalid input. Enter a valid number of liters:"));
+			}
+
+			var cost = pricePerLiter * liters;
+			alert("Your total payment is: " + cost);
+
+			var cash = parseFloat(prompt("Enter amount of cash:"));
+			while (isNaN(cash) || cash < cost) {
+				alert("Insufficient cash. Please enter an amount greater than or equal to the total payment.");
+				cash = parseFloat(prompt("Enter amount of cash:"));
+			}
+
+			var change = cash - cost;
+			alert("Your change is: " + change);
+		}
+	</script>
+</body>
+</html>
